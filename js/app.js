@@ -12,11 +12,11 @@
         
         createDB.onerror = function(e) {
             console.log('Database Error: ', e.target.errorCode);
-        }
+        };
 
         createDB.onsuccess = function() {
             DB = createDB.result;
-        }
+        };
 
         createDB.onupgradeneeded = function(e) {
             const db = e.target.result;
@@ -31,7 +31,7 @@
 
             console.log('DB ready!');
 
-        }
+        };
 
     }
 })();
