@@ -10,8 +10,8 @@
     function createDB() {
         const createDB = window.indexedDB.open('crm', 1);
         
-        createDB.onerror = function(e) {
-            console.log('Database Error: ', e.target.errorCode);
+        createDB.onerror = function() {
+            console.log('Database Error');
         };
 
         createDB.onsuccess = function() {
@@ -23,10 +23,10 @@
 
             const objectStore = db.createObjectStore('crm', { keyPath: 'id', autoIncrement: true });
 
-            objectStore.createIndex('nombre', 'nombre', {unique: false});
+            objectStore.createIndex('name', 'name', {unique: false});
             objectStore.createIndex('email', 'email', {unique: true});
-            objectStore.createIndex('telefono', 'telefono', {unique: false});
-            objectStore.createIndex('empresa', 'empresa', {unique: false});
+            objectStore.createIndex('phone', 'phone', {unique: false});
+            objectStore.createIndex('company', 'company', {unique: false});
             objectStore.createIndex('id', 'id', {unique: true});
 
             console.log('DB ready!');
